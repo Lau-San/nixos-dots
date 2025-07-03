@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+# TODO: Nixify this colorpicker script
+fmt="$1"
+# sleep 1
+clr=$(hyprpicker --autocopy --format="${fmt}")
+notify-send "HyperPicker" "Copied color '${clr}' to clipboard"

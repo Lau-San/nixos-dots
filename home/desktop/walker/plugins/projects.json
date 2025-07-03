@@ -1,0 +1,11 @@
+{
+    "simple": [
+        { "name": "Project1", "path": "/some/path.py" },
+        { "name": "Project2", "path": "/some/other/path.py" },
+        { "name": "LeetCode", "args": "+':Leet'" }
+    ],
+    "zellij_layouts": [
+        { "name": "project3", "layout": "mylayout" },
+        { "name": "project4", "layout": "myotherlayout" }
+    ]
+}

@@ -1,0 +1,169 @@
+scan_timeout = 50
+command_timeout = 3000
+add_newline = true
+
+## COLOR HINTS
+## ================================
+## Name             ANSI    Hex
+## ---------------- ------- -------
+## black            0       #15161e
+## red              1       #f7768e
+## green            2       #9ece6a
+## yellow           3       #e0af68
+## blue             4       #7aa2f7
+## purple           5       #bb9af7
+## cyan             6       #7dcfff
+## white            7       #a9b1d6
+## bright-black     8       #414868
+## bright-red       9       #f7768e
+## bright-green     10      #9ece6a
+## bright-yellow    11      #e0af68
+## bright-blue      12      #7aa2f7
+## bright-purple    13      #bb9af7
+## bright-cyan      14      #7dcfff
+## bright-white     15      #c0caf5
+##                  16      #ff9e64
+##                  17      #4CCBB7
+## ================================
+
+format = """ $directory($git_branch$git_status)\
+$python\
+$nix_shell\
+$nodejs\
+$lua\
+$java\
+$shell
+ $character
+"""
+
+[shell]
+disabled = false
+format = "[](fg:purple)[ $indicator]($style)[](fg:purple)"
+style = "bg:purple fg:black"
+bash_indicator = " "
+fish_indicator = " "
+
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](purple)"
+
+[directory]
+format = """([](fg:red)[ $read_only ]($read_only_style)[](fg:red))\
+[](fg:17)[ $path ]($style)[](fg:black)"""
+style = "bg:black fg:17"
+read_only = " "
+read_only_style = "bg:red fg:black"
+home_symbol = " "
+repo_root_format = """[](fg:17)[  $repo_root ]($repo_root_style)[](bg:black fg:17)\
+([ $path ]($style))[](fg:black)"""
+repo_root_style = "bg:17 fg:0 bold"
+fish_style_pwd_dir_length = 2
+
+[git_branch]
+format = "[](fg:blue)[ $symbol$branch ]($style)[](fg:blue bg:black)"
+style = "bg:blue fg:black"
+symbol = " "
+
+[git_commit]
+format = " []($style bold) [$hash$tag]($style dimmed)"
+style = "blue"
+only_detached = false
+tag_disabled = false
+
+[git_status]
+format = "[( ($ahead_behind )$all_status )]($style)[](fg:black)"
+style = "bg:black"
+modified = "[ ](bg:black fg:yellow)"
+renamed = "[ ](bg:black fg:blue)"
+deleted = "[ ](bg:black fg:red)"
+staged = "[ ](bg:black fg:green)"
+untracked = "[](bg:black fg:red)"
+conflicted = "[ ](bg:black fg:red)"
+ahead = "[](bg:black fg:17) "
+behind = "[](bg:black fg:red) "
+
+[nix_shell]
+format = "([](fg:blue)[ $symbol$name$state ]($style)[](fg:blue))"
+impure_msg = ""
+pure_msg = ""
+style = "bg:blue fg:black bold"
+symbol = " "
+
+[python]
+format = "([](fg:yellow)[ $symbol$version( $virtualenv) ]($style)[](fg:yellow))"
+style = "bg:yellow fg:black"
+symbol = " "
+python_binary = ["python3", "python"]
+
+[nodejs]
+format = "([](fg:green)[ $symbol$version ]($style)[](fg:green))"
+style = "bg:green fg:black"
+symbol = "󰎙 "
+
+[lua]
+#format = "([ $symbol]($style bold) [$version]($style) []($style bold) )"
+# format = "([]($style)[$symbol $version]($style inverted)[]($style) )"
+format = "([](fg:blue)[ $symbol$version ]($style)[](fg:blue))"
+style = "bg:blue fg:black"
+symbol = " "
+
+[cmd_duration]
+disabled = true
+
+# Not configured
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "

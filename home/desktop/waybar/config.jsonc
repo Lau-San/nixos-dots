@@ -1,0 +1,39 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 42,
+    // "width": 1280,
+    "spacing": 8,
+    // "margin": "10 10 0 10",
+    "reload_style_on_change": true,
+
+    "include": [
+        "~/.config/waybar/modules/workspaces.jsonc",
+        "~/.config/waybar/modules/window.jsonc",
+        "~/.config/waybar/modules/clock.jsonc",
+        "~/.config/waybar/modules/media.jsonc",
+        "~/.config/waybar/modules/tray.jsonc",
+        "~/.config/waybar/modules/control.jsonc",
+        "~/.config/waybar/modules/sysmonitor.jsonc",
+        "~/.config/waybar/modules/power.jsonc",
+        "~/.config/waybar/modules/submap.jsonc"
+    ],
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "mpris",
+        "cava",
+        "tray",
+        "group/control",
+        "group/sysmonitor",
+        "clock",
+        "group/power"
+    ]
+}
