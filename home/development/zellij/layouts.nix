@@ -24,9 +24,7 @@
                         }
                     }
                     tab name="Terminal" {
-                        pane borderless=true {
-                            pane name="Terminal"
-                        }
+                        pane borderless=true
                     }
                 }
             '';
