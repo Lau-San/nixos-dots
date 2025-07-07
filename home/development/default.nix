@@ -31,6 +31,11 @@
 
         # Package managers
         lua51Packages.luarocks
+
+        # Scripts
+        (writeScriptBin "colorutils" (builtins.readFile ./scripts/colorutils))
+        (writeScriptBin "msgutils" (builtins.readFile ./scripts/msgutils))
+        (writeScriptBin "newproject" (builtins.readFile ./scripts/newproject))
     ];
 
     programs.direnv.enable = true;

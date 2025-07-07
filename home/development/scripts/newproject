@@ -1,0 +1,123 @@
+#!/usr/bin/env bash
+
+source /etc/profiles/per-user/laura/bin/msgutils
+
+traperr () {
+    error "Error at Line ${BASH_LINENO[0]}"
+}
+
+set -o errtrace
+trap traperr ERR
+
+PROJECTS_DIR="$HOME/Projects"
+PYXEL_PROJECTS_DIR="$PROJECTS_DIR/development/games/pyxel"
+
+all_project_types=('pyxel')
+project_type="$1"
+project_name="$2"
+project_root="$3"
+
+is_type_valid () {
+    type="$1"
+
+    for t in "${all_project_types[@]}"; do
+        if [[ "$type" == "$t" ]]; then
+            echo 1
+            return
+        fi
+    done
+    echo 0
+}
+
+get_type () {
+    if [[ -z "$project_type" ]]; then
+        prompt "What type of project are you creating?
+        ${purple_fg}1: $reset Pyxel - Small retro style game
+        ${purple_fg}2: $reset Godot - General game (Not yet implemented)
+        ${purple_fg}3: $reset React - Web application (Not yet implemented)
+    ${purple_fg}"
+
+        case "$prompt_ans" in
+            1)
+                project_type="pyxel"
+                ;;
+            # 2)
+            #     project_type="godot"
+            #     ;;
+            # 3)
+            #     project_type="react"
+            #     ;;
+            *)
+                error "$ans wasn't a valid option"
+                exit 1
+                ;;
+        esac
+    fi
+
+    if [[ "$(is_type_valid "$project_type")" == "1" ]]; then
+        info "Project type set to $project_type"
+    else
+        error "$project_type is not a valid project type. Possible project types are: ${all_project_types[*]}"
+        exit 1
+    fi
+}
+
+get_name () {
+    if [[ -z "$project_name" ]]; then
+        prompt "What is the name of your project? (default: my-new-project)"
+        project_name="${prompt_ans:-"my-new-project"}"
+    fi
+    info "Project name set to $project_name"
+}
+
+generate_project_root () {
+    case "$project_type" in
+        "pyxel")
+            project_root="$PYXEL_PROJECTS_DIR/$project_name"
+            ;;
+        *)
+            error "Cannot generate a project directory for a project of type $project_type"
+            exit 1
+            ;;
+    esac
+}
+
+create_project_directory () {
+    if [[ -z "$project_root" ]]; then
+        generate_project_root
+    fi
+
+    if [[ -d "$project_root" ]]; then
+        error "Cannot create project directory $project_root because it already exists"
+    else
+        info "Cloning $project_type project template repository..."
+        git clone -q "https://github.com/Lau-San/${project_type}-template.git" "$project_root"
+        if [[ $? -ne 0 ]]; then
+            error "Something went wrong trying to clone the template"
+            exit 1
+        fi
+        rm -rf "$project_root/.git"
+        git init -q "$project_root"
+        direnv allow "$project_root"
+        info "Cloned $project_type project template to $project_root"
+    fi
+}
+
+PROJECTS_FILE=$HOME/.config/walker/plugins/projects.json
+add_project_to_walker_projects_plugin () {
+    pretty_name=$(echo "$project_name" | sed 's/[^-]*/\u&/g' | sed 's/-/ /g')
+    new_project_line="{ \"name\": \"${pretty_name}\", \"layout\": \"${project_type}\", \"path\": \"${project_root}\" },"
+    sed -i "s|\"zellij_layouts\": \[|\"zellij_layouts\": \[\n        ${new_project_line}|" $PROJECTS_FILE
+    info "Added project to project picker (Walker) for easy access"
+}
+
+main () {
+    info "Let's create a new project!"
+    get_type
+    get_name
+    create_project_directory
+    add_project_to_walker_projects_plugin
+    success "Your new $project_type project is ready! You can open it quickly with Walker by pressing SUPER + ;"
+}
+
+main

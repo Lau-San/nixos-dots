@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+source /etc/profiles/per-user/laura/bin/colorutils
+
+msg () {
+    lvl="$1"
+    fg="$2"
+    bg="$3"
+    msg="$4"
+    echo -e "$bg$black_fg$bold $lvl $reset$fg $msg$reset"
+}
+
+info () {
+    msg="$1"
+    msg "I" "$blue_fg" "$blue_bg" "$msg"
+}
+
+success () {
+    msg="$1"
+    msg "S" "$green_fg" "$green_bg" "$msg"
+}
+
+warn () {
+    msg="$1"
+    msg "W" "$orange_fg" "$orange_bg" "$msg"
+}
+
+error () {
+    msg="$1"
+    msg "E" "$red_fg" "$red_bg" "$msg"
+}
+
+prompt () {
+    msg="$1"
+    echo -en "$purple_bg$black_fg$bold > $reset$purple_fg ${msg} >$reset "
+    read -r prompt_ans
+}

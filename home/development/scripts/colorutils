@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+black_fg="\e[30m"
+red_fg="\e[31m"
+green_fg="\e[32m"
+orange_fg="\e[33m"
+blue_fg="\e[34m"
+purple_fg="\e[35m"
+cyan_fg="\e[36m"
+white_fg="\e[37m"
+
+black_bg="\e[40m"
+red_bg="\e[41m"
+green_bg="\e[42m"
+orange_bg="\e[43m"
+blue_bg="\e[44m"
+purple_bg="\e[45m"
+cyan_bg="\e[46m"
+white_bg="\e[47m"
+
+bold="\e[1m"
+dim="\e[2m"
+italic="\e[3m"
+underline="\e[4m"
+reverse="\e[7m"
+
+reset="\e[0m"
+
+colorize () {
+    color="$1"
+    msg="$2"
+    echo -e "$color$msg$reset"
+}
