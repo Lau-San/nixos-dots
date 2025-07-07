@@ -30,5 +30,6 @@
         gh
         home-manager
         nemo-with-extensions
+        libsForQt5.polkit-kde-agent
     ];
 }

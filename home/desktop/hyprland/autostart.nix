@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+    config,
+    pkgs,
+    ...
+}: {
     wayland.windowManager.hyprland.settings = {
         exec = with config.hyprland.programs; [
             # Set cursor theme and size
@@ -15,8 +19,8 @@
         ];
 
         exec-once = with config.hyprland.programs; [
-            "systemctl --user start hyprpolkitagent"
             "${bar.cmd}"
+            "systemctl --user start plasma-polkit-agent"
         ];
     };
 }

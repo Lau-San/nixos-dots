@@ -22,7 +22,7 @@
     };
 
     home.packages = with pkgs; [
-        hyprpolkitagent
+        # hyprpolkitagent
         fnott # TODO: Replace with fnott option
         hyprpicker
         hyprshot

@@ -8,6 +8,8 @@
         };
     };
 
+    security.polkit.enable = true;
+
     # Display Manager
     services.displayManager.sddm.enable = true;
 

@@ -1,9 +1,13 @@
-{ config, pkgs, inputs, ... }:
 {
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nix.settings.trusted-users = [ "root" "laura" "@wheel" ];
+    config,
+    pkgs,
+    inputs,
+    ...
+}: {
+    nix.settings.experimental-features = ["nix-command" "flakes"];
+    nix.settings.trusted-users = ["root" "laura" "@wheel"];
 
-    nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     # Bootloader.
     # boot.loader.systemd-boot.enable = true;
@@ -31,7 +35,7 @@
 
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocales = [ "en_GB.UTF-8/UTF-8" ];
+    i18n.extraLocales = ["en_GB.UTF-8/UTF-8"];
 
     # Configure console keymap
     console.keyMap = "la-latin1";
