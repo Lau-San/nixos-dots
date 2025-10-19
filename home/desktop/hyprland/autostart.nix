@@ -7,6 +7,8 @@
         exec = with config.hyprland.programs; [
             # Set cursor theme and size
             "hyprctl setcursor Bibata-Modern-Classic 28"
+            # "gsettings set org.gnome.interface cursor-theme 'Bibata-Modern-Classic'"
+            # "gsettings set org.gnome.interface cursor-size 28"
 
             # Set wallpaper
             "killall hyprpaper; hyprpaper"

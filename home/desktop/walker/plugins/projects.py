@@ -47,14 +47,13 @@ def generate_zellij_layout_entries(projects: dict) -> list[dict]:
     entries = []
 
     def zj_cmd(project: dict) -> str:
-        project_path = f'{PROJECTS_DIR}/{project["path"]}'
-        return f'kitty -d {project_path} zellij -s "{project["name"]}" -n {project["layout"]}'
+        return f'kitty -d {project["path"]} zellij -s "{project["name"]}" -n {project["layout"]}'
 
     for p in projects['zellij_layouts']:
         new_entry = {
             'label': f' {p["name"]}',
             'searchable': p['name'].lower(),
-            'exec': f'zellij d {p["layout"]}; {zj_cmd(p)}',
+            'exec': f'zellij d "{p["name"]}"; {zj_cmd(p)}',
         }
 
         entries.append(new_entry)

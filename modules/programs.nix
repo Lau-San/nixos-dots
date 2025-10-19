@@ -31,5 +31,9 @@
         home-manager
         nemo-with-extensions
         libsForQt5.polkit-kde-agent
+        ffmpeg-full
+        mangohud
+        goverlay
+        vulkan-tools
     ];
 }

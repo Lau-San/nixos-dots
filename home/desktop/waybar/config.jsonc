@@ -26,6 +26,7 @@
         "hyprland/window"
     ],
     "modules-center": [
+        "clock",
     ],
     "modules-right": [
         "mpris",
@@ -33,7 +34,6 @@
         "tray",
         "group/control",
         "group/sysmonitor",
-        "clock",
         "group/power"
     ]
 }

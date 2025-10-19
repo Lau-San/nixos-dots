@@ -1,5 +1,6 @@
 local navigator = {
     'dynamotn/Navigator.nvim',
+    event = require('util').lazy_file_events,
     config = function(_, opts)
         require('Navigator').setup(opts)
     end,

@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+    config,
+    pkgs,
+    ...
+}: {
     imports = [
         ./monitors.nix
         ./programs.nix
@@ -25,8 +29,10 @@
         };
 
         env = [
-            "XCURSOR_SIZE, 28"
+            "HYPRCURSOR_THEME, Bibata-Modern-Classic"
             "HYPRCURSOR_SIZE, 28"
+            "XCURSOR_THEME, Bibata-Modern-Classic"
+            "XCURSOR_SIZE, 28"
 
             "XDG_CURRENT_DESKTOP, Hyprland"
             "XDG_SESSION_TYPE, wayland"
@@ -42,6 +48,5 @@
             "LIBVA_DRIVER_NAME, nvidia"
             "__GLX_VENDOR_LIBRARY_NAME, nvidia"
         ];
-
     };
 }

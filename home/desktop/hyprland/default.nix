@@ -27,19 +27,8 @@
         hyprpicker
         hyprshot
         yazi # TODO: replace with yazi option
-        btop # TODO: Replace with btop option
         wl-clipboard
     ];
-
-    xdg.portal = {
-        enable = true;
-        # extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-        config.hyprland = {
-            default = ["hyprland" "termfilechooser" "gtk"];
-            "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
-            "org.freedesktop.impl.portal.FileChooser" = ["termfileschooser"];
-        };
-    };
 
     home.file."${config.hyprland.scriptsDir}" = {
         source = ./scripts;

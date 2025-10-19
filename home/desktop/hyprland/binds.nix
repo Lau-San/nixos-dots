@@ -43,7 +43,8 @@ in {
 
             # Prompts/Utilities
             # TODO: Enable these after configuring Walker
-            "SUPER          , P         , exec, ${programs.menu.cmd} applications"
+            # "SUPER          , P         , exec, ${programs.menu.cmd} applications"
+            "SUPER          , P         , exec, ${programs.menu.cmd} drun"
             "SUPER          , R         , exec, ${programs.menu.cmd} runner"
             # "SUPER          , O         , exec, ${programs.menu} obsidian"
             "SUPER          , Comma     , exec, ${programs.menu.cmd} projects"

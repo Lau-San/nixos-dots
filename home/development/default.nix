@@ -10,6 +10,8 @@
     ];
 
     home.packages = with pkgs; [
+        godotPackages_4_5.godot
+
         # Nix tools
         nix-prefetch-scripts
         nix-prefetch-github

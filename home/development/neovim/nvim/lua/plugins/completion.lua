@@ -7,21 +7,21 @@ local blink = {
         completion = {
             accept = {
                 auto_brackets = {
-                    enabled = true
-                }
+                    enabled = true,
+                },
             },
             menu = {
                 draw = {
                     treesitter = { 'lsp' },
-                }
+                },
             },
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 200
+                auto_show_delay_ms = 200,
             },
         },
         appearance = {
-            kind_icons = require('util.icons').kinds
+            kind_icons = require('util.icons').kinds,
         },
         snippets = { preset = 'luasnip' },
         sources = {
@@ -30,17 +30,17 @@ local blink = {
                 css = { 'lsp', 'path', 'snippets' },
                 scss = { 'lsp', 'path', 'snippets' },
                 sass = { 'lsp', 'path', 'snippets' },
-            }
+            },
         },
         cmdline = {
-            enabled = true
+            enabled = true,
         },
         keymap = {
             preset = 'none',
             ['<Tab>'] = { 'select_and_accept', 'fallback' },
 
-            ['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
-            ['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
+            ['<C-k>'] = { 'select_prev', 'fallback' },
+            ['<C-j>'] = { 'select_next', 'fallback' },
 
             ['<S-Tab>'] = {},
             ['<C-p>'] = {},
@@ -48,8 +48,8 @@ local blink = {
             ['<C-f>'] = {},
             ['<C-b>'] = {},
             ['<C-y>'] = {},
-        }
-    }
+        },
+    },
 }
 
 local nvim_cmp = {
@@ -97,7 +97,7 @@ local nvim_cmp = {
                 sources = cmp.config.sources({
                     { name = 'lazydev' },
                     { name = 'nvim_lsp' },
-                    { name = 'path' }
+                    { name = 'path' },
                 }),
                 formatting = {
                     format = function(entry, item)
@@ -106,7 +106,7 @@ local nvim_cmp = {
 
                         local widths = {
                             abbr = 40,
-                            menu = 30
+                            menu = 30,
                         }
 
                         for key, width in pairs(widths) do
@@ -119,15 +119,15 @@ local nvim_cmp = {
                     end,
                     sorting = defaults.sorting,
                     snippet = {
-                        expand = function(args) end
-                    }
-                }
-            }
+                        expand = function(args) end,
+                    },
+                },
+            },
         }
     end,
 }
 
 return {
-    blink
+    blink,
     -- nvim_cmp
 }

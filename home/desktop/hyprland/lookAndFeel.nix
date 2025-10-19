@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+    config,
+    pkgs,
+    ...
+}: {
     wayland.windowManager.hyprland.settings = {
         general = {
             gaps_in = 6;
@@ -6,8 +10,8 @@
 
             border_size = 3;
 
-            "col.active_border" = "rgb(7499EC)";
-            "col.inactive_border" = "rgb(222436)";
+            # "col.active_border" = "rgb(7499EC)";
+            # "col.inactive_border" = "rgb(222436)";
 
             resize_on_border = false;
             allow_tearing = false;
@@ -23,7 +27,7 @@
                 enabled = true;
                 range = 16;
                 render_power = 2;
-                color = "rgba(0000098a)";
+                # color = "rgba(0000098a)";
                 offset = "0, 5";
             };
 
@@ -40,8 +44,8 @@
         };
 
         group = {
-            "col.border_active" = "rgb(BB9AF7) rgb(89DDFF) 45deg";
-            "col.border_inactive" = "rgba(1A1B26AA)";
+            # "col.border_active" = "rgb(BB9AF7) rgb(89DDFF) 45deg";
+            # "col.border_inactive" = "rgba(1A1B26AA)";
 
             groupbar = {
                 enabled = true;
@@ -49,10 +53,10 @@
                 font_size = 16;
                 height = 24;
                 stacked = false;
-                text_color = "rgb(A9B1D6)";
+                # text_color = "rgb(A9B1D6)";
 
-                "col.active" = "rgb(222436)";
-                "col.inactive" = "rgba(1A1B268A)";
+                # "col.active" = "rgb(222436)";
+                # "col.inactive" = "rgba(1A1B268A)";
             };
         };
 
@@ -62,4 +66,3 @@
         };
     };
 }
-

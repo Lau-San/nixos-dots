@@ -1,5 +1,9 @@
-{ config, pkgs, inputs, ... }:
 {
+    config,
+    pkgs,
+    inputs,
+    ...
+}: {
     imports = [
         ./options.nix
         ./desktopPortals.nix
@@ -7,10 +11,10 @@
         ./hyprland
         ./waybar
         ./walker
+        ./rofi
     ];
 
     home.file."${config.wallpapersDir}" = {
         source = ./wallpapers;
     };
-
 }

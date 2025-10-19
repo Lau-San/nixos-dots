@@ -11,8 +11,8 @@
 @define-color purple    #BB9AF7;
 
 *, *:hover {
-    font-family: 'Victor Mono Medium';
-    color: @white;
+    font-family: 'Victor Mono Medium', 'Font Awesome 6 Free';
+    /* color: @white; */
     text-shadow: none;
     box-shadow: none;
     font-feature-settings: 'ss01';
@@ -23,7 +23,7 @@
     border: none;
 }
 
-window#waybar {
+#waybar {
     background-color: transparent;
     /*border-bottom: 4px solid rgb(26, 27, 38);*/
 }

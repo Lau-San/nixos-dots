@@ -3,8 +3,6 @@
     pkgs,
     ...
 }: let
-    fastfetchConfigDir = "${config.home.homeDirectory}/.config/fastfetch";
-    image = "${fastfetchConfigDir}/logo.png";
 in {
     # home.packages = [pkgs.chafa];
 
@@ -14,7 +12,7 @@ in {
         enable = true;
         settings = {
             logo = {
-                source = "${image}";
+                source = "logo.png";
                 padding = {
                     top = 0;
                     left = 0;
